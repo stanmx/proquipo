@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+	<title>Proquipo / Sitio en Construcci&oacute;n</title>
+	<meta http-equiv="Content-Type" content="UTF-8" />
+	<%= stylesheet_link_tag 'scaffold' %>
+    <%= javascript_include_tag :defaults, :cache => true %>
+</head>    
+<body>
+	<div id="topage">
+		<div id="user_nav">
+      		<% if current_user %>
+      			<%#= link_to "Editar Perfil", edit_user_path(:current) %>  
+      			<%= link_to "Logout", logout_path %>
+      		<% else %>
+      			<%#= link_to "Registrar", new_user_path %>
+      			<%= link_to "Login", login_path %>
+      		<% end %>      	
+    	</div>
+    	<p class="flashmessage"><%= flash[:notice] %></p>
+    
+	</div><!--end topage-->
+		
+	<div id="page">
+    
+	<%= yield %>
+        
+        <div id="footer">
+        
+        	<div id="copy">
+            	<p><strong>Proquipo</strong> &copy; 2010 Todos los derechos Reservados.</p>
+            </div><!--end copy-->
+            
+            <div id="powered">
+            	<p>Desarrollado por: <a title="Ingenia Creative" href="http://ingeniacreative.com/"><strong>Ingenia Creative&trade;</strong></a></p>
+            </div><!--end powered-->
+            
+        </div><!--end footer-->
+    	
+    
+    
+    </div><!--end page-->
+</body>
+</html>

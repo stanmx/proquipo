@@ -1,0 +1,91 @@
+<div id="title">
+	<h3>Nuevo Producto</h3>
+</div><!--end title-->
+
+<div id="content">
+	<div id="bar"></div><!--end bar-->
+	
+	<div id="sidecontent">
+<div id="loginup">
+<% form_for(@product, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label 'Categoria' %><br />
+    <%= f.collection_select(:category_id, @categories, :id, :title, {:prompt => 'Selecciona una ...'}) %>
+  </p>
+  <p><%= f.label '&iquest;es un producto usado?' %><%= f.check_box :used %></p>
+  <p>
+    <%= f.label 'Nombre' %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label 'Descripci&oacute;n' %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label 'Marca' %><br />
+    <%= f.text_field :mark %>
+  </p>
+  <p>
+    <%= f.label 'Modelo' %><br />
+    <%= f.text_field :model %>
+  </p>
+  <p>
+    <%= f.label 'Numero de Serie' %><br />
+    <%= f.text_field :serie_num %>
+  </p>
+  <p>
+    <%= f.label 'Garantia' %><br />
+    <%= f.text_field :warranty %>
+  </p>
+  <p>
+    <%= f.label 'Peso' %><br />
+    <%= f.text_field :weight %>
+  </p>
+  <p>
+    <%= f.label 'Dimensiones' %><br />
+    <%= f.text_field :dimensions %>
+  </p>
+  <p>
+    <%= f.label 'Numero de Pedimento' %><br />
+    <%= f.text_field :pediment_num %>
+  </p>
+  <p>
+    <%= f.label 'Observaciones' %><br />
+    <%= f.text_area :observations %>
+  </p>
+  <p>
+    <%= f.label 'Precio de Lista' %><br />
+    <%= f.text_field :list_price %>
+  </p>
+  <p>
+    <%= f.label 'Precio de Venta' %><br />
+    <%= f.text_field :sale_price %>
+  </p>
+  <p>
+    <%= f.label 'Precio Especial' %><br />
+    <%= f.text_field :special_price %>
+  </p>
+  <p>
+    <%= f.label 'Tiempo de Entrega' %><br />
+    <%= f.text_field :delivery_time %>
+  </p>
+  <% f.fields_for :photos do |builder| %>  
+  	<%= render 'photo_fields', :f => builder %>
+  <% end %>  
+
+  <p><%= link_to_add_fields "Agregar Foto", f, :photos %></p> 
+ 
+  <p>
+    <%= f.submit 'Crear Producto' %>
+  </p>
+<% end %>
+
+<div class="editmore">
+   <h5><%= link_to 'Regresar', categories_path %></h5>
+</div>
+
+	</div><!--end loginup-->
+	</div><!--end sidecontent-->
+</div><!--end content-->

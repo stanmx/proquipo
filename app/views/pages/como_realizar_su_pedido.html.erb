@@ -1,0 +1,45 @@
+<%= render :partial => 'submenu_refacciones' %>
+
+<div id="title">
+	<h3>Como Realizar su Pedido</h3>
+</div><!--end title-->
+
+<div id="content">   
+	   	
+	<%= render :partial => 'bar' %>   
+	
+	<div id="sidecontent">
+		<div id="text">
+			<h2>Como Realizar su Pedido de Refacciones</h2>
+			<p>Estimado cliente , para agilizar su pedido de refacciones es necesario que nos proporcione 
+			la siguiente información:</p>
+			<ol>
+				<li>Tipo de unidad.</li>
+				<li>Marca de la unidad.</li>
+				<li>Modelo completo de la unidad.</li>
+				<li>No. de Serie (en algunos casos).</li>
+				<li>Descripcción detallada de la pieza y/o componente.</li>
+				<li>Cantidad requerida.</li>
+			</ol>
+			<p>Haga sus pedidos por telefono, fax o correo electronico por dos horas antes de recojer la pieza, para agilizar el pedido y tener preparada la factura y orden para a su llegada.</p>
+			
+
+		</div><!--end text-->
+		
+		<div id="note">
+			<div class="noteinfo">
+				<%= image_tag 'mail-icon-gray.gif' %>
+				<p>Para compras llamar al <strong>(664) 684-52-75</strong><br /> o escribir un mensaje a <strong>ventas@proquipo.com</strong></p>
+			</div><!--end note-info-->
+			
+			<div class="notebutton">
+        		<p>
+					<%= link_to 'Regresar', refacciones_path %>        			
+        		</p>
+            </div><!--end notebuton-->
+        </div><!--end note-->
+
+	</div><!--end sidecontent-->
+</div><!--end content-->
+
+<%= render :partial => 'submenu_refacciones_pie' %>

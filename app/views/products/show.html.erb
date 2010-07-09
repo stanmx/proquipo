@@ -1,0 +1,78 @@
+<div id="title">
+	<h3><%=h @product.title %></h3>
+</div><!--end title-->
+
+<div id="content">      	
+	<div id="bar"></div><!--end bar-->
+	
+	<div id="sidecontent">
+
+		<div id="productdetail">
+			
+			<div id="productphotos">
+			<% if @product.photos.empty? %>
+				<div class="productphoto">
+				  <%= image_tag 'proquipo-logo-290x180.jpg' %>
+				</div><!--end productphoto--> 
+				<% else %>		
+				<% for photo in @product.photos %> 
+   				<div class="productphoto">
+   					  <%= image_tag photo.photo.url(:thumb) %>
+   				</div><!--end productphoto-->  
+				<% end %>  
+			<% end %>
+			</div><!--end productphotos-->
+            
+			<div id="productdet">
+				<h3><%=h @product.title %></h3>
+				<ul>
+					<li><strong>Categoria:</strong> <%=h @product.category.title %></li>
+					<li><% if @product.used? %>
+							<strong>Producto Usado</strong>
+						<% else %>
+							<strong>Producto Nuevo</strong>
+						<% end %>
+					</li>
+					<li><strong>Descripci&oacute;n:</strong> <%=h @product.description %></li>
+  					<li><strong>Marca:</strong> <%=h @product.mark %></li>
+					<li><strong>Modelo:</strong> <%=h @product.model %></li>
+					<li><strong>Numero de Serie:</strong> <%=h @product.serie_num %></li>
+					<li><strong>Garantia:</strong> <%=h @product.warranty %></li>
+  					<li><strong>Peso:</strong> <%=h @product.weight %></li>
+					<li><strong>Dimensiones:</strong> <%=h @product.dimensions %></li>
+					<li><strong>Numero de Pedimento:</strong> <%=h @product.pediment_num %></li>
+					<li><strong>Observaciones:</strong> <%=h @product.observations %></li>
+					<li><strong>Precio de Lista:</strong> <%=h @product.list_price %></li>
+					<li><strong>Precio de Venta:</strong> <%=h @product.sale_price %></li>
+					<li><strong>Precio Especial:</strong> <%=h @product.special_price %></li>
+					<li><strong>Tiempo de Entrega:</strong> <%=h @product.delivery_time %></li>
+				</ul>
+			</div><!--end productdet-->
+
+		</div><!--end productdetail-->
+
+
+
+		<div id="note">
+			<div class="noteinfo">
+				<%= image_tag 'mail-icon-gray.gif' %>
+				<p>Para compras llamar al <strong>(664) 684-52-75</strong><br /> o escribir un mensaje a <strong>ventas@proquipo.com</strong></p>
+			</div><!--end note-info-->
+			
+			<div class="notebutton">
+        		<p>
+        			<% if can? :update, @product %>
+						<%= link_to 'Editar', edit_product_path(@product) %>
+					<% end %>
+					<% if @product.used? %>
+							<%= link_to 'Regresar', used_products_path(@product.category_id) %>
+						<% else %>
+							<%= link_to 'Regresar', new_products_path(@product.category_id) %>
+						<% end %>       			
+        		</p>
+            </div><!--end notebuton-->
+        </div><!--end note-->
+
+
+	</div><!--end sidecontent-->
+</div><!--end content-->

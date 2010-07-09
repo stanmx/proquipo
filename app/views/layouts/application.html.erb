@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+	<title>Proquipo</title>
+	<meta http-equiv="Content-Type" content="UTF-8" />
+	<%= stylesheet_link_tag 'scaffold' %>
+    <%= javascript_include_tag :defaults, :cache => true %>
+</head>    
+<body>
+
+	<div id="topage">
+		<div id="user_nav">
+      		<% if current_user %>
+      			<%#= link_to "Editar Perfil", edit_user_path(:current) %>  
+      			<%= link_to "Logout", logout_path %>
+      		<% else %>
+      			<%#= link_to "Registrar", new_user_path %>  
+      			<%= link_to "Login", login_path %>
+      		<% end %>      	
+    	</div>
+    	<p class="flashmessage"><%= flash[:notice] %></p>
+    
+	</div><!--end topage-->
+
+	<div id="page">
+    
+    	<div id="header">
+        
+        	<div id="logo">
+            	
+                <h1><%= image_tag 'proquipo-logo.gif', :title => 'Proquipo' %></h1>
+                
+            </div><!--end logo-->
+            
+            <div id="menu">
+            	<ul id="options">
+                	<li id="option-inicio"><%= link_to 'Inicio', pages_path %></li>
+                    <li id="option-nosotros"><%= link_to 'Nosotros', panorama_general_path %></li>
+                    <li id="option-productos"><%= link_to 'Productos', categories_path %></li>
+                    <li id="option-refacciones"><%= link_to 'Refacciones', refacciones_path %></li>
+                    <li id="option-reparacion"><%= link_to 'Reparaci&oacute;n Certificada', reparacion_certificada_path %></li>
+                    <li id="option-asistencia"><%= link_to 'Asistencia Tecnica', asistencia_tecnica_path %></li>
+					<li id="option-noticias"><a href="#">Noticias</a></li>
+                    <li id="option-contacto"><a href="mailto:ventas@proquipo.com">Contacto</a></li>
+                </ul>
+            </div><!--end menu-->
+        
+        </div><!--end header-->	
+
+		<%= yield %>
+        
+        <div id="footer">
+        
+        	<div id="copy">
+            	<p><strong>Proquipo</strong> &copy; 2010 Todos los derechos Reservados.</p>
+            </div><!--end copy-->
+            
+            <div id="powered">
+            	<p>Desarrollado por: <strong>Ingenia Creative&trade;</strong></p>
+            </div><!--end powered-->
+            
+        </div><!--end footer-->
+    	
+    
+    
+    </div><!--end page-->
+</body>
+</html>

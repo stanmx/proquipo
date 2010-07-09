@@ -1,0 +1,52 @@
+<div id="title">
+	<h3>Lista Productos</h3>
+</div><!--end title-->
+
+<div id="content">   
+	
+	<% if can? :create, @product %>
+		<div class="newcategory">
+		<p>Agregar <%= link_to 'Nuevo Producto', new_product_path %></p>
+		</div>
+	<% end %>
+	   	
+	<div id="bar"></div><!--end bar-->
+	
+	<div id="sidecontent">
+
+<% if @category.products.empty? %>
+	<div class="nofound">
+	<p>Por el momento no hay disponibilidad de equipo para esta categoria, por favor consulte despues.</p>
+	</div><!--end nofound-->
+<% else %>
+<% @products.each do |product| %>
+
+	<div class="product">
+  	<div class="productimg">
+		<% if product.photos.empty? %>
+		  <%= image_tag 'proquipo-logo-290x180.jpg' %>
+		<% else %>
+		  <%= image_tag product.photos.first.photo.url(:thumb) %>
+		<% end %>
+	</div><!--end productimg-->
+    <h3><%=h product.title %></h3>
+    <p><%=h product.description %></p>
+    	<div class="details">
+    		<h5>
+    			<%= link_to 'Detalles', product %> 
+    			<% if can? :update, product %>
+    				<%= link_to 'Editar', edit_product_path(product) %> 
+    			<% end %>
+    			<% if can? :destroy, product %>
+    				<%= link_to 'Eliminar', product, :confirm => 'Estas seguro?', :method => :delete %>
+				<% end %>
+				<%= link_to 'Regresar', categories_path %>
+			</h5>
+		</div><!--end details-->
+	
+  	</div><!--end product-->
+<% end %>
+<% end %>
+
+	</div><!--end sidecontent-->
+</div><!--end content-->

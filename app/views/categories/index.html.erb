@@ -1,0 +1,37 @@
+<div id="title">
+	<h3>Lista de Categorias</h3>
+</div><!--end title-->
+
+<div id="content-categories"> 
+	<div id="categories">
+	
+		<% if can? :create, @category %>
+		<div class="newcategory">
+			<p>Agregar <%= link_to 'Nueva Categoria', new_category_path %></p>
+		</div><!--end newcategory-->
+		<% end %>	
+		
+<% @categories.each do |category| %>
+	<div class="category">	
+  	<%= image_tag category.image.url(:thumb) %>
+    <h3><%=h category.title %></h3>
+    <p><%=h category.description %></p>
+    	<div class="versions">
+    		<h5>
+				<%= link_to 'Nuevos', new_products_path(category.id) %>
+				<%= link_to 'Usados', used_products_path(category.id) %>
+    			<% if can? :update, category %>
+    				<%= link_to 'Editar', edit_category_path(category) %> 
+    			<% end %>
+    			<% if can? :destroy, category %>
+    				<%= link_to 'Eliminar', category, :confirm => 'Estas seguro?', :method => :delete %>
+				<% end %>
+			</h5>
+		</div><!--end versions-->
+	
+  	</div><!--end category-->
+<% end %>
+
+	</div><!--end categories-->
+
+</div><!--end content-->

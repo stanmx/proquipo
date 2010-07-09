@@ -1,0 +1,25 @@
+<div id="title">
+	<h3>Login</h3>
+</div><!--end title-->
+<div id="content"> 
+	<div id="bar"></div><!--end bar-->
+	
+	<div id="sidecontent">	
+	<div id="loginup">
+
+	<% form_for @user_session do |f| %>
+  		<%= f.error_messages %>
+  	<p>
+    	<%= f.label 'Usuario' %><br />
+    	<%= f.text_field :username %>
+  	</p>
+  	<p>
+    	<%= f.label :password %><br />
+    	<%= f.password_field :password %>
+  	</p>
+  	<p><%= f.submit 'Accesar' %></p>
+	<% end %>
+	</div><!--end loginup-->
+	</div><!--end sidecontent-->
+
+</div><!--end content-->
