@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20100610223550) do
   create_table "products", :force => true do |t|
     t.integer  "category_id"
     t.boolean  "used"
+    t.string   "used_categories"
     t.string   "title"
     t.text     "description"
     t.string   "mark"

@@ -27,12 +27,13 @@
 				<h3><%=h @product.title %></h3>
 				<ul>
 					<li><strong>Categoria:</strong> <%=h @product.category.title %></li>
-					<li><% if @product.used? %>
-							<strong>Producto Usado</strong>
+					<% if @product.used? %>
+							<li><strong>Producto Usado</strong></li>
+							<li><strong>Categoria de Producto Usado:</strong> <%=h @product.used_categories.humanize %></li>
 						<% else %>
-							<strong>Producto Nuevo</strong>
+							<li><strong>Producto Nuevo</strong></li>
 						<% end %>
-					</li>
+					
 					<li><strong>Descripci&oacute;n:</strong> <%=h @product.description %></li>
   					<li><strong>Marca:</strong> <%=h @product.mark %></li>
 					<li><strong>Modelo:</strong> <%=h @product.model %></li>

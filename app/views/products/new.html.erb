@@ -16,6 +16,9 @@
   </p>
   <p><%= f.label '&iquest;es un producto usado?' %><%= f.check_box :used %></p>
   <p>
+  	<%= f.collection_select :used_categories, Product::USED_CATEGORIES, :to_s, :humanize %>
+  </p>
+  <p>
     <%= f.label 'Nombre' %><br />
     <%= f.text_field :title %>
   </p>

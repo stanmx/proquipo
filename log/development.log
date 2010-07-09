@@ -28495,3 +28495,500 @@ Processing CategoriesController#index (for 127.0.0.1 at 2010-07-08 22:50:21) [GE
 Rendering template within layouts/application
 Rendering categories/index
 Completed in 26ms (View: 7, DB: 0) | 200 OK [http://localhost/categories]
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCategories (20100610180504)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100610180504')[0m
+Migrating to CreateProducts (20100610183318)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_id" integer, "used" boolean, "used_categories" varchar(255), "title" varchar(255), "description" text, "mark" varchar(255), "model" varchar(255), "serie_num" varchar(255), "warranty" varchar(255), "weight" varchar(255), "dimensions" varchar(255), "pediment_num" varchar(255), "observations" text, "list_price" varchar(255), "sale_price" varchar(255), "special_price" varchar(255), "delivery_time" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100610183318')[0m
+Migrating to AddAttachmentsImageToCategory (20100610202051)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mALTER TABLE "categories" ADD "image_file_name" varchar(255)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mALTER TABLE "categories" ADD "image_content_type" varchar(255)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mALTER TABLE "categories" ADD "image_file_size" integer[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mALTER TABLE "categories" ADD "image_updated_at" datetime[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100610202051')[0m
+Migrating to CreatePhotos (20100610210508)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "photos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100610210508')[0m
+Migrating to AddAttachmentsPhotoToPhoto (20100610210610)
+  [4;35;1mSQL (0.4ms)[0m   [0mALTER TABLE "photos" ADD "photo_file_name" varchar(255)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mALTER TABLE "photos" ADD "photo_content_type" varchar(255)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mALTER TABLE "photos" ADD "photo_file_size" integer[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mALTER TABLE "photos" ADD "photo_updated_at" datetime[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100610210610')[0m
+Migrating to CreateUsers (20100610221555)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100610221555')[0m
+Migrating to AddRoleToUsers (20100610223550)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mALTER TABLE "users" ADD "role" varchar(255)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100610223550')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("categories")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("photos")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("products")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-07-08 23:42:20) [GET]
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 110ms (View: 26, DB: 0) | 200 OK [http://localhost/categories]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-07-08 23:42:24) [GET]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 24ms (View: 13, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-07-08 23:42:36) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (6.6ms)
+Completed in 93ms (View: 83, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-07-08 23:42:52) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"D73Z4ODZOMTO8/O05Z/e+RpX9OfnpbJjHMCTSlIxMEE=", "user"=>{"password_confirmation"=>"password", "role"=>"admin", "username"=>"stan", "password"=>"password", "email"=>"stanmx@gmail.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'stanmx@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'stan') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("created_at", "crypted_password", "updated_at", "username", "role", "password_salt", "persistence_token", "email") VALUES('2010-07-09 06:42:53', '300f4aeb2f78097ff89a060ff5df6817929e660c5b3af24f7e197d61526deb628345ddddce16d4ab5ee34bcbff5fed570bc44affa91d67a9da73d4e383c70a29', '2010-07-09 06:42:53', 'stan', 'admin', 'BHH4S3J97nuoYDfJnuTo', '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad', 'stanmx@gmail.com')[0m
+Redirected to http://localhost:3000/
+Completed in 165ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-07-08 23:42:53) [GET]
+Rendering template within layouts/introduction
+Rendering pages/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Completed in 31ms (View: 29, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-07-08 23:43:01) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 89ms (View: 4, DB: 1) | 200 OK [http://localhost/categories]
+
+
+Processing CategoriesController#new (for 127.0.0.1 at 2010-07-08 23:43:03) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering categories/new
+Completed in 34ms (View: 12, DB: 0) | 200 OK [http://localhost/categories/new]
+
+
+Processing CategoriesController#create (for 127.0.0.1 at 2010-07-08 23:43:38) [POST]
+  Parameters: {"category"=>{"title"=>"Categoria x", "description"=>"When I’m writing content for the web, I hate dealing with HTML coding. HTML is rather verbose as a markup language, and having to include closing tags is messy and error-prone.", "image"=>#<File:/var/folders/9X/9XcnbPG6EbynVlxLTVTlKU+++TI/-Tmp-/RackMultipart20100708-31644-1jxuk0o-0>}, "commit"=>"Crear Categoria", "authenticity_token"=>"D73Z4ODZOMTO8/O05Z/e+RpX9OfnpbJjHMCTSlIxMEE="}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;36;1mCategory Create (0.5ms)[0m   [0;1mINSERT INTO "categories" ("created_at", "image_file_name", "title", "image_file_size", "updated_at", "image_content_type", "description", "image_updated_at") VALUES('2010-07-09 06:43:39', 'categoria.jpg', 'Categoria x', 38995, '2010-07-09 06:43:39', 'image/jpeg', 'When I’m writing content for the web, I hate dealing with HTML coding. HTML is rather verbose as a markup language, and having to include closing tags is messy and error-prone.', '2010-07-09 06:43:38')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/Stan/ruby/proquipo/public/category_images/1/original/categoria.jpg
+[paperclip] saving /Users/Stan/ruby/proquipo/public/category_images/1/thumb/categoria.jpg
+[paperclip] saving /Users/Stan/ruby/proquipo/public/category_images/1/big/categoria.jpg
+Redirected to http://localhost:3000/categories/1
+Completed in 449ms (DB: 1) | 302 Found [http://localhost/categories]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2010-07-08 23:43:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering categories/show
+Completed in 33ms (View: 10, DB: 1) | 200 OK [http://localhost/categories/1]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-07-08 23:43:41) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 31ms (View: 10, DB: 1) | 200 OK [http://localhost/categories]
+
+
+Processing ProductsController#new_products (for 127.0.0.1 at 2010-07-08 23:43:46) [GET]
+  Parameters: {"category_id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering products/new_products
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "products" WHERE (((used ='f') AND ("products".category_id = 1)) AND ("products".category_id = 1)) [0m
+Completed in 39ms (View: 12, DB: 1) | 200 OK [http://localhost/categories/1/new_products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-07-08 23:43:47) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering products/new
+
+ActionView::TemplateError (undefined method `used_categories' for #<ActionView::Base:0x10321e810>) on line #19 of app/views/products/new.html.erb:
+16:   </p>
+17:   <p><%= f.label '&iquest;es un producto usado?' %><%= f.check_box :used %></p>
+18:   <p>
+19:   	<%= f.collection_select :used_categories, self.used_categories %>
+20:   </p>
+21:   <p>
+22:     <%= f.label 'Nombre' %><br />
+
+    app/views/products/new.html.erb:19
+    app/views/products/new.html.erb:10
+    app/controllers/products_controller.rb:55:in `new'
+
+Rendered rescues/_trace (63.5ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-07-08 23:44:49) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering products/new
+Rendered products/_photo_fields (1.6ms)
+Rendered products/_photo_fields (1.1ms)
+Completed in 145ms (View: 33, DB: 1) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-08 23:45:49) [POST]
+  Parameters: {"commit"=>"Crear Producto", "authenticity_token"=>"D73Z4ODZOMTO8/O05Z/e+RpX9OfnpbJjHMCTSlIxMEE=", "product"=>{"model"=>"", "photos_attributes"=>{"0"=>{"_destroy"=>""}}, "delivery_time"=>"", "pediment_num"=>"", "dimensions"=>"", "title"=>"Producto X1", "weight"=>"", "special_price"=>"", "used"=>"1", "mark"=>"", "used_categories"=>"seminuevo", "category_id"=>"1", "serie_num"=>"", "description"=>"We’re all pretty much stuck with delivering HTML code from our web sites, but that doesn’t mean we have to write in it. There’s any number of markup approaches that are superior to HTML when it comes to content creation, and which can be used as source code from which to create HTML. Two that are widely used are Textile and Markdown.", "observations"=>"", "sale_price"=>"", "list_price"=>"", "warranty"=>""}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM "categories" [0m
+  [4;36;1mProduct Create (0.4ms)[0m   [0;1mINSERT INTO "products" ("model", "created_at", "title", "dimensions", "pediment_num", "delivery_time", "updated_at", "weight", "used", "special_price", "category_id", "used_categories", "mark", "serie_num", "description", "observations", "warranty", "list_price", "sale_price") VALUES('', '2010-07-09 06:45:49', 'Producto X1', '', '', '', '2010-07-09 06:45:49', '', 't', '', 1, 'seminuevo', '', '', 'We’re all pretty much stuck with delivering HTML code from our web sites, but that doesn’t mean we have to write in it. There’s any number of markup approaches that are superior to HTML when it comes to content creation, and which can be used as source code from which to create HTML. Two that are widely used are Textile and Markdown.', '', '', '', '')[0m
+Redirected to http://localhost:3000/products/1
+Completed in 37ms (DB: 1) | 302 Found [http://localhost/products]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:45:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 124ms (View: 25, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:48:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 48ms (View: 24, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:49:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.9ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 50ms (View: 25, DB: 2) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-07-08 23:50:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering products/edit
+  [4;36;1mPhoto Load (0.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".product_id = 1) [0m
+Rendered products/_photo_fields (2.4ms)
+Completed in 128ms (View: 33, DB: 1) | 200 OK [http://localhost/products/1/edit]
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2010-07-08 23:50:10) [PUT]
+  Parameters: {"commit"=>"Actualizar Producto", "authenticity_token"=>"D73Z4ODZOMTO8/O05Z/e+RpX9OfnpbJjHMCTSlIxMEE=", "id"=>"1", "product"=>{"model"=>"", "delivery_time"=>"", "pediment_num"=>"", "dimensions"=>"", "title"=>"Producto X1", "weight"=>"", "special_price"=>"", "used"=>"0", "mark"=>"", "category_id"=>"1", "serie_num"=>"", "description"=>"We’re all pretty much stuck with delivering HTML code from our web sites, but that doesn’t mean we have to write in it. There’s any number of markup approaches that are superior to HTML when it comes to content creation, and which can be used as source code from which to create HTML. Two that are widely used are Textile and Markdown.", "observations"=>"", "sale_price"=>"", "list_price"=>"", "warranty"=>""}}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM "categories" [0m
+  [4;36;1mProduct Update (0.4ms)[0m   [0;1mUPDATE "products" SET "updated_at" = '2010-07-09 06:50:10', "used" = 'f' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/products/1
+Completed in 37ms (DB: 1) | 302 Found [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:50:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 116ms (View: 93, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-07-08 23:50:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering products/edit
+  [4;36;1mPhoto Load (0.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".product_id = 1) [0m
+Rendered products/_photo_fields (2.5ms)
+Completed in 57ms (View: 29, DB: 1) | 200 OK [http://localhost/products/1/edit]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-07-08 23:51:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering products/edit
+  [4;36;1mPhoto Load (0.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".product_id = 1) [0m
+Rendered products/_photo_fields (2.5ms)
+Completed in 136ms (View: 35, DB: 1) | 200 OK [http://localhost/products/1/edit]
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2010-07-08 23:51:42) [PUT]
+  Parameters: {"commit"=>"Actualizar Producto", "authenticity_token"=>"D73Z4ODZOMTO8/O05Z/e+RpX9OfnpbJjHMCTSlIxMEE=", "id"=>"1", "product"=>{"model"=>"", "delivery_time"=>"", "pediment_num"=>"", "dimensions"=>"", "title"=>"Producto X1", "weight"=>"", "special_price"=>"", "used"=>"1", "mark"=>"", "used_categories"=>"debajo_de_aceptable", "category_id"=>"1", "serie_num"=>"", "description"=>"We’re all pretty much stuck with delivering HTML code from our web sites, but that doesn’t mean we have to write in it. There’s any number of markup approaches that are superior to HTML when it comes to content creation, and which can be used as source code from which to create HTML. Two that are widely used are Textile and Markdown.", "observations"=>"", "sale_price"=>"", "list_price"=>"", "warranty"=>""}}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM "categories" [0m
+  [4;36;1mProduct Update (0.3ms)[0m   [0;1mUPDATE "products" SET "updated_at" = '2010-07-09 06:51:42', "used" = 't', "used_categories" = 'debajo_de_aceptable' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/products/1
+Completed in 36ms (DB: 1) | 302 Found [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:51:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 115ms (View: 19, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:52:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+
+ActionView::TemplateError (wrong number of arguments (3 for 1)) on line #32 of app/views/products/show.html.erb:
+29: 					<li><strong>Categoria:</strong> <%=h @product.category.title %></li>
+30: 					<% if @product.used? %>
+31: 							<li><strong>Producto Usado</strong></li>
+32: 							<li><strong>Categoria de Producto Usado:</strong> <%=h @product.used_categories, :to_s, :humanize %></li>
+33: 						<% else %>
+34: 							<li><strong>Producto Nuevo</strong></li>
+35: 						<% end %>
+
+    app/views/products/show.html.erb:32:in `h'
+    app/views/products/show.html.erb:32
+    app/controllers/products_controller.rb:43:in `show'
+
+Rendered rescues/_trace (60.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:52:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `humanize' for #<ActionView::Base:0x103065460>) on line #32 of app/views/products/show.html.erb:
+29: 					<li><strong>Categoria:</strong> <%=h @product.category.title %></li>
+30: 					<% if @product.used? %>
+31: 							<li><strong>Producto Usado</strong></li>
+32: 							<li><strong>Categoria de Producto Usado:</strong> <%=h humanize(@product.used_categories) %></li>
+33: 						<% else %>
+34: 							<li><strong>Producto Nuevo</strong></li>
+35: 						<% end %>
+
+    app/views/products/show.html.erb:32
+    app/controllers/products_controller.rb:43:in `show'
+
+Rendered rescues/_trace (58.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:52:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `humanize' for #<ActionView::Base:0x10300b1b8>) on line #32 of app/views/products/show.html.erb:
+29: 					<li><strong>Categoria:</strong> <%=h @product.category.title %></li>
+30: 					<% if @product.used? %>
+31: 							<li><strong>Producto Usado</strong></li>
+32: 							<li><strong>Categoria de Producto Usado:</strong> <%=h humanize(@product.used_categories) %></li>
+33: 						<% else %>
+34: 							<li><strong>Producto Nuevo</strong></li>
+35: 						<% end %>
+
+    app/views/products/show.html.erb:32
+    app/controllers/products_controller.rb:43:in `show'
+
+Rendered rescues/_trace (58.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:53:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 49ms (View: 25, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-07-08 23:54:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering products/edit
+  [4;36;1mPhoto Load (0.2ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".product_id = 1) [0m
+Rendered products/_photo_fields (2.6ms)
+Completed in 126ms (View: 99, DB: 1) | 200 OK [http://localhost/products/1/edit]
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2010-07-08 23:54:11) [PUT]
+  Parameters: {"commit"=>"Actualizar Producto", "authenticity_token"=>"D73Z4ODZOMTO8/O05Z/e+RpX9OfnpbJjHMCTSlIxMEE=", "id"=>"1", "product"=>{"model"=>"", "delivery_time"=>"", "pediment_num"=>"", "dimensions"=>"", "title"=>"Producto X1", "weight"=>"", "special_price"=>"", "used"=>"0", "mark"=>"", "used_categories"=>"debajo_de_aceptable", "category_id"=>"1", "serie_num"=>"", "description"=>"We’re all pretty much stuck with delivering HTML code from our web sites, but that doesn’t mean we have to write in it. There’s any number of markup approaches that are superior to HTML when it comes to content creation, and which can be used as source code from which to create HTML. Two that are widely used are Textile and Markdown.", "observations"=>"", "sale_price"=>"", "list_price"=>"", "warranty"=>""}}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM "categories" [0m
+  [4;36;1mProduct Update (0.4ms)[0m   [0;1mUPDATE "products" SET "updated_at" = '2010-07-09 06:54:11', "used" = 'f' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/products/1
+Completed in 36ms (DB: 1) | 302 Found [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:54:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 40ms (View: 18, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#new_products (for 127.0.0.1 at 2010-07-08 23:54:17) [GET]
+  Parameters: {"category_id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering products/new_products
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "products" WHERE (((used ='f') AND ("products".category_id = 1)) AND ("products".category_id = 1)) [0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products".category_id = 1) AND ((used ='f') AND ("products".category_id = 1)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+Completed in 47ms (View: 21, DB: 1) | 200 OK [http://localhost/categories/1/new_products]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-07-08 23:54:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering products/edit
+  [4;35;1mPhoto Load (0.2ms)[0m   [0mSELECT * FROM "photos" WHERE ("photos".product_id = 1) [0m
+Rendered products/_photo_fields (72.1ms)
+Completed in 124ms (View: 99, DB: 1) | 200 OK [http://localhost/products/1/edit]
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2010-07-08 23:54:31) [PUT]
+  Parameters: {"commit"=>"Actualizar Producto", "authenticity_token"=>"D73Z4ODZOMTO8/O05Z/e+RpX9OfnpbJjHMCTSlIxMEE=", "id"=>"1", "product"=>{"model"=>"", "delivery_time"=>"", "pediment_num"=>"", "dimensions"=>"", "title"=>"Producto X1", "weight"=>"", "special_price"=>"", "used"=>"0", "mark"=>"", "used_categories"=>"debajo_de_aceptable", "category_id"=>"1", "serie_num"=>"", "description"=>"We’re all pretty much stuck with delivering HTML code from our web sites, but that doesn’t mean we have to write in it. There’s any number of markup approaches that are superior to HTML when it comes to content creation, and which can be used as source code from which to create HTML. Two that are widely used are Textile and Markdown.", "observations"=>"", "sale_price"=>"", "list_price"=>"", "warranty"=>""}}
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Redirected to http://localhost:3000/products/1
+Completed in 34ms (DB: 1) | 302 Found [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:54:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 40ms (View: 18, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-07-08 23:55:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM "categories" [0m
+Rendering template within layouts/application
+Rendering products/edit
+  [4;36;1mPhoto Load (0.3ms)[0m   [0;1mSELECT * FROM "photos" WHERE ("photos".product_id = 1) [0m
+Rendered products/_photo_fields (2.4ms)
+Completed in 56ms (View: 29, DB: 1) | 200 OK [http://localhost/products/1/edit]
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2010-07-08 23:55:30) [PUT]
+  Parameters: {"commit"=>"Actualizar Producto", "authenticity_token"=>"D73Z4ODZOMTO8/O05Z/e+RpX9OfnpbJjHMCTSlIxMEE=", "id"=>"1", "product"=>{"model"=>"", "delivery_time"=>"", "pediment_num"=>"", "dimensions"=>"", "title"=>"Producto X1", "weight"=>"", "special_price"=>"", "used"=>"1", "mark"=>"", "used_categories"=>"debajo_de_aceptable", "category_id"=>"1", "serie_num"=>"", "description"=>"We’re all pretty much stuck with delivering HTML code from our web sites, but that doesn’t mean we have to write in it. There’s any number of markup approaches that are superior to HTML when it comes to content creation, and which can be used as source code from which to create HTML. Two that are widely used are Textile and Markdown.", "observations"=>"", "sale_price"=>"", "list_price"=>"", "warranty"=>""}}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT * FROM "categories" [0m
+  [4;36;1mProduct Update (0.4ms)[0m   [0;1mUPDATE "products" SET "updated_at" = '2010-07-09 06:55:30', "used" = 't' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/products/1
+Completed in 36ms (DB: 1) | 302 Found [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-08 23:55:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 43ms (View: 19, DB: 1) | 200 OK [http://localhost/products/1]

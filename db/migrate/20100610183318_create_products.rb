@@ -3,6 +3,7 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.integer :category_id
       t.boolean :used
+      t.string :used_categories
       t.string :title
       t.text :description
       t.string :mark
