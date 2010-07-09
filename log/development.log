@@ -28992,3 +28992,71 @@ Rendering products/show
   [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
   [4;36;1mCategory Load (0.3ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
 Completed in 43ms (View: 19, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-09 00:20:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+
+ActionView::TemplateError (No expansion found for :jquery) on line #3 of app/views/products/show.html.erb:
+1: <%
+2: content_for :head do
+3: 	javascript_include_tag :jquery
+4: end
+5: %>
+6: 
+
+    app/views/products/show.html.erb:3
+    app/views/products/show.html.erb:2
+    app/controllers/products_controller.rb:43:in `show'
+
+Rendered rescues/_trace (140.6ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-09 00:21:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 64ms (View: 39, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-09 00:25:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 112ms (View: 24, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-09 00:25:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 43ms (View: 18, DB: 1) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-09 00:25:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '485845789fe921095001095c4ed6355bf36e958b883ac5a8fb2729e34ffac82a0256f41342a23c144fbc0b71651f70a0237a2ad172163a85e815749873a8f1ad') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "photos" WHERE ("photos".product_id = 1) [0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m
+Completed in 44ms (View: 19, DB: 1) | 200 OK [http://localhost/products/1]

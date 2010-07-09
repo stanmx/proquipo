@@ -1,3 +1,9 @@
+<%
+content_for :head do
+	javascript_include_tag '/javascripts/jquery.js'
+end
+%>
+
 <div id="title">
 	<h3><%=h @product.title %></h3>
 </div><!--end title-->
